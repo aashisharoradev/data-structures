@@ -1,0 +1,139 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        
+        {
+            "name": "Head Recursion",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/recursion/bin/head.o",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "preLaunchTask": "Head Recursion"
+        },
+        {
+            "name": "Tail Recursion",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/recursion/bin/tail.o",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "preLaunchTask": "Tail Recursion"
+        },
+        {
+            "name": "Tree Recursion",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/recursion/bin/tree.o",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "preLaunchTask": "Tree Recursion"
+        },
+        {
+            "name": "Indirect Recursion",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/recursion/bin/indirect.o",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "preLaunchTask": "Indirect Recursion"
+        },
+        {
+            "name": "Nested Recursion",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/recursion/bin/nested.o",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "preLaunchTask": "Nested Recursion"
+        },
+        {
+            "name": "Sum of Natural Number",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/recursion/bin/natnumsum.o",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "preLaunchTask": "Sum of Natural Number"
+        },
+        {
+            "name": "Factorial",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/recursion/bin/factorial.o",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "preLaunchTask": "Factorial"
+        },
+        {
+            "name": "Exponent",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/recursion/bin/exponent.o",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "preLaunchTask": "Exponent"
+        },
+        {
+            "name": "TaylorSeries",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/recursion/bin/taylorseries.o",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "preLaunchTask": "TaylorSeries"
+        },
+        {
+            "name": "Fibonacci",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/recursion/bin/fibonacci.o",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "preLaunchTask": "Fibonacci"
+        }
+    ]
+}

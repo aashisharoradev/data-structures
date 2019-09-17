@@ -1,0 +1,107 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Tail Recursion",
+            "request": "launch",
+            "mainClass": "recursion.Tail",
+            "preLaunchTask": "Compile",
+            "cwd": "${workspaceFolder}",
+            "classPaths": [
+                "${workspaceFolder}/recursion/bin"
+            ]
+        },
+        {
+            "type": "java",
+            "name": "Head Recursion",
+            "request": "launch",
+            "mainClass": "recursion.Head",
+            "preLaunchTask": "Compile",
+            "cwd": "${workspaceFolder}",
+            "classPaths": [
+                "${workspaceFolder}/recursion/bin"
+            ]
+        },
+        {
+            "type": "java",
+            "name": "Tree Recursion",
+            "request": "launch",
+            "mainClass": "recursion.Tree",
+            "preLaunchTask": "Compile",
+            "cwd": "${workspaceFolder}",
+            "classPaths": [
+                "${workspaceFolder}/recursion/bin"
+            ]
+        },
+        {
+            "type": "java",
+            "name": "Indirect Recursion",
+            "request": "launch",
+            "mainClass": "recursion.Indirect",
+            "preLaunchTask": "Compile",
+            "cwd": "${workspaceFolder}",
+            "classPaths": [
+                "${workspaceFolder}/recursion/bin"
+            ]
+        },
+        {
+            "type": "java",
+            "name": "Nested Recursion",
+            "request": "launch",
+            "mainClass": "recursion.Nested",
+            "preLaunchTask": "Compile",
+            "cwd": "${workspaceFolder}",
+            "classPaths": [
+                "${workspaceFolder}/recursion/bin"
+            ]
+        },
+        {
+            "type": "java",
+            "name": "Sum of Natural Number",
+            "request": "launch",
+            "mainClass": "recursion.NatNumSum",
+            "preLaunchTask": "Compile",
+            "cwd": "${workspaceFolder}",
+            "classPaths": [
+                "${workspaceFolder}/recursion/bin"
+            ]
+        },
+        {
+            "type": "java",
+            "name": "Factorial",
+            "request": "launch",
+            "mainClass": "recursion.Factorial",
+            "preLaunchTask": "Compile",
+            "cwd": "${workspaceFolder}",
+            "classPaths": [
+                "${workspaceFolder}/recursion/bin"
+            ]
+        },
+        {
+            "type": "java",
+            "name": "Exponent",
+            "request": "launch",
+            "mainClass": "recursion.Exponent",
+            "preLaunchTask": "Compile",
+            "cwd": "${workspaceFolder}",
+            "classPaths": [
+                "${workspaceFolder}/recursion/bin"
+            ]
+        },
+        {
+            "type": "java",
+            "name": "TaylorSeries",
+            "request": "launch",
+            "mainClass": "recursion.TaylorSeries",
+            "preLaunchTask": "Compile",
+            "cwd": "${workspaceFolder}",
+            "classPaths": [
+                "${workspaceFolder}/recursion/bin"
+            ]
+        }
+    ]
+}

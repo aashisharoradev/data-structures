@@ -1,0 +1,58 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Head Recursion",
+            "type": "shell",
+            "command": "gcc -g ${workspaceFolder}/recursion/head.c -o ${workspaceFolder}/recursion/bin/head.o"
+        },
+        {
+            "label": "Tail Recursion",
+            "type": "shell",
+            "command": "gcc -g ${workspaceFolder}/recursion/tail.c -o ${workspaceFolder}/recursion/bin/tail.o"
+        },
+        {
+            "label": "Tree Recursion",
+            "type": "shell",
+            "command": "gcc -g ${workspaceFolder}/recursion/tree.c -o ${workspaceFolder}/recursion/bin/tree.o"
+        },
+        {
+            "label": "Indirect Recursion",
+            "type": "shell",
+            "command": "gcc -g ${workspaceFolder}/recursion/indirect.c -o ${workspaceFolder}/recursion/bin/indirect.o"
+        },
+        {
+            "label": "Nested Recursion",
+            "type": "shell",
+            "command": "gcc -g ${workspaceFolder}/recursion/nested.c -o ${workspaceFolder}/recursion/bin/nested.o"
+        },
+        {
+            "label": "Sum of Natural Number",
+            "type": "shell",
+            "command": "gcc -g ${workspaceFolder}/recursion/natnumsum.c -o ${workspaceFolder}/recursion/bin/natnumsum.o"
+        },
+        {
+            "label": "Factorial",
+            "type": "shell",
+            "command": "gcc -g ${workspaceFolder}/recursion/factorial.c -o ${workspaceFolder}/recursion/bin/factorial.o"
+        },
+        {
+            "label": "Exponent",
+            "type": "shell",
+            "command": "gcc -g ${workspaceFolder}/recursion/exponent.c -o ${workspaceFolder}/recursion/bin/exponent.o"
+        },
+        {
+            "label": "TaylorSeries",
+            "type": "shell",
+            "command": "gcc -g ${workspaceFolder}/recursion/taylorseries.c -o ${workspaceFolder}/recursion/bin/taylorseries.o"
+        },
+        {
+            "label": "Fibonacci",
+            "type": "shell",
+            "command": "gcc -g ${workspaceFolder}/recursion/fibonacci.c -o ${workspaceFolder}/recursion/bin/fibonacci.o"
+        }
+        
+    ]
+}

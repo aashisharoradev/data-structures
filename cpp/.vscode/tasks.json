@@ -1,0 +1,52 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Head Recursion",
+            "type": "shell",
+            "command": "g++ -g ${workspaceFolder}/recursion/head.cpp -o ${workspaceFolder}/recursion/bin/head.o"
+        },
+        {
+            "label": "Tail Recursion",
+            "type": "shell",
+            "command": "g++ -g ${workspaceFolder}/recursion/tail.cpp -o ${workspaceFolder}/recursion/bin/tail.o"
+        },
+        {
+            "label": "Tree Recursion",
+            "type": "shell",
+            "command": "g++ -g ${workspaceFolder}/recursion/tree.cpp -o ${workspaceFolder}/recursion/bin/tree.o"
+        },
+        {
+            "label": "Indirect Recursion",
+            "type": "shell",
+            "command": "g++ -g ${workspaceFolder}/recursion/indirect.cpp -o ${workspaceFolder}/recursion/bin/indirect.o"
+        },
+        {
+            "label": "Nested Recursion",
+            "type": "shell",
+            "command": "g++ -g ${workspaceFolder}/recursion/nested.cpp -o ${workspaceFolder}/recursion/bin/nested.o"
+        },
+        {
+            "label": "Sum of Natural Number",
+            "type": "shell",
+            "command": "g++ -g ${workspaceFolder}/recursion/natnumsum.cpp -o ${workspaceFolder}/recursion/bin/natnumsum.o"
+        },
+        {
+            "label": "Factorial",
+            "type": "shell",
+            "command": "g++ -g ${workspaceFolder}/recursion/factorial.cpp -o ${workspaceFolder}/recursion/bin/factorial.o"
+        },
+        {
+            "label": "Exponent",
+            "type": "shell",
+            "command": "g++ -g ${workspaceFolder}/recursion/exponent.cpp -o ${workspaceFolder}/recursion/bin/exponent.o"
+        },
+        {
+            "label": "TaylorSeries",
+            "type": "shell",
+            "command": "g++ -g ${workspaceFolder}/recursion/taylorseries.cpp -o ${workspaceFolder}/recursion/bin/taylorseries.o"
+        }
+    ]
+}
