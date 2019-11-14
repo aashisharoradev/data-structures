@@ -1,6 +1,8 @@
 #include<iostream>
 using namespace std;
-
+/**
+ * e power x = 1 + (x power 2)/2! + (x power 3)/3! + (x power 4)/4! .....
+ */
 double exponent(int x, int n) {
     static double sum = 1;
     if(n == 0) {
