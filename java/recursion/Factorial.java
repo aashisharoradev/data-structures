@@ -6,9 +6,6 @@ public class Factorial {
         if(num > 0) {
             return factorial(num - 1) * num;
         }
-        else if(num == 0) {
-            return 1;
-        }
         return 1;
     }
 

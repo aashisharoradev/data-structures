@@ -3,7 +3,7 @@ package recursion;
 public class Tree {
     void printNumber(int num) {
         if (num > 0) {
-            System.out.print(num);
+            System.out.println(num);
             this.printNumber(num - 1);
             this.printNumber(num - 1);
         }
