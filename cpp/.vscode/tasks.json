@@ -47,6 +47,11 @@
             "label": "TaylorSeries",
             "type": "shell",
             "command": "g++ -g ${workspaceFolder}/recursion/taylorseries.cpp -o ${workspaceFolder}/recursion/bin/taylorseries.o"
+        },
+        {
+            "label": "Tower Of Hanoi",
+            "type": "shell",
+            "command": "g++ -g ${workspaceFolder}/recursion/towerofhanoi.cpp -o ${workspaceFolder}/recursion/bin/towerofhanoi.o"
         }
     ]
 }

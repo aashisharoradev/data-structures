@@ -4,6 +4,19 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+        {
+            "name": "Tower Of Hanoi",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/recursion/bin/towerofhanoi.o",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "preLaunchTask": "Tower Of Hanoi",
+            "MIMode": "lldb"
+        },
         
         {
             "name": "Head Recursion",

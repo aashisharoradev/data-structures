@@ -6,6 +6,17 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Tower Of Hanaoi",
+            "request": "launch",
+            "mainClass": "recursion.TowerOfHanoi",
+            "preLaunchTask": "Compile",
+            "cwd": "${workspaceFolder}",
+            "classPaths": [
+                "${workspaceFolder}/recursion/bin"
+            ]
+        },
+        {
+            "type": "java",
             "name": "Tail Recursion",
             "request": "launch",
             "mainClass": "recursion.Tail",

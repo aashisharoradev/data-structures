@@ -52,6 +52,11 @@
             "label": "Fibonacci",
             "type": "shell",
             "command": "gcc -g ${workspaceFolder}/recursion/fibonacci.c -o ${workspaceFolder}/recursion/bin/fibonacci.o"
+        },
+        {
+            "label": "Tower Of Hanoi",
+            "type": "shell",
+            "command": "gcc -g ${workspaceFolder}/recursion/towerofhanoi.c -o ${workspaceFolder}/recursion/bin/towerofhanoi.o"
         }
         
     ]
