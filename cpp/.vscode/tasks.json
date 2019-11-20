@@ -52,6 +52,11 @@
             "label": "Tower Of Hanoi",
             "type": "shell",
             "command": "g++ -g ${workspaceFolder}/recursion/towerofhanoi.cpp -o ${workspaceFolder}/recursion/bin/towerofhanoi.o"
+        },
+        {
+            "label": "Initialization",
+            "type": "shell",
+            "command": "g++ -g ${workspaceFolder}/arrays/initialization.cpp -o ${workspaceFolder}/arrays/bin/initialization.o"
         }
     ]
 }

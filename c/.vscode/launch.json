@@ -143,6 +143,32 @@
             "externalConsole": false,
             "MIMode": "lldb",
             "preLaunchTask": "Fibonacci"
-        }
+        },
+        {
+            "name": "array-intialization",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/arrays/bin/initialization.o",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "preLaunchTask": "array-initialization"
+        },
+        {
+            "name": "dynamic",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/arrays/bin/dynamic.o",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "preLaunchTask": "dynamic"
+        },
     ]
 }

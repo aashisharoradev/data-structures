@@ -134,6 +134,19 @@
             "externalConsole": false,
             "MIMode": "lldb",
             "preLaunchTask": "TaylorSeries"
+        },
+        {
+            "name": "Initialization",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/arrays/bin/initialization.o",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "preLaunchTask": "Initialization"
         }
     ]
 }

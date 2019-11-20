@@ -57,7 +57,16 @@
             "label": "Tower Of Hanoi",
             "type": "shell",
             "command": "gcc -g ${workspaceFolder}/recursion/towerofhanoi.c -o ${workspaceFolder}/recursion/bin/towerofhanoi.o"
+        },
+        {
+            "label": "array-initialization",
+            "type": "shell",
+            "command": "gcc -g ${workspaceFolder}/arrays/initialization.c -o ${workspaceFolder}/arrays/bin/initialization.o"
+        },
+        {
+            "label": "dynamic",
+            "type": "shell",
+            "command": "gcc -g ${workspaceFolder}/arrays/dynamic.c -o ${workspaceFolder}/arrays/bin/dynamic.o"
         }
-        
     ]
 }
