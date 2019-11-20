@@ -9,7 +9,7 @@
             "name": "Tower Of Hanaoi",
             "request": "launch",
             "mainClass": "recursion.TowerOfHanoi",
-            "preLaunchTask": "Compile",
+            "preLaunchTask": "Compile-Recursion",
             "cwd": "${workspaceFolder}",
             "classPaths": [
                 "${workspaceFolder}/recursion/bin"
@@ -20,7 +20,7 @@
             "name": "Tail Recursion",
             "request": "launch",
             "mainClass": "recursion.Tail",
-            "preLaunchTask": "Compile",
+            "preLaunchTask": "Compile-Recursion",
             "cwd": "${workspaceFolder}",
             "classPaths": [
                 "${workspaceFolder}/recursion/bin"
@@ -31,7 +31,7 @@
             "name": "Head Recursion",
             "request": "launch",
             "mainClass": "recursion.Head",
-            "preLaunchTask": "Compile",
+            "preLaunchTask": "Compile-Recursion",
             "cwd": "${workspaceFolder}",
             "classPaths": [
                 "${workspaceFolder}/recursion/bin"
@@ -42,7 +42,7 @@
             "name": "Tree Recursion",
             "request": "launch",
             "mainClass": "recursion.Tree",
-            "preLaunchTask": "Compile",
+            "preLaunchTask": "Compile-Recursion",
             "cwd": "${workspaceFolder}",
             "classPaths": [
                 "${workspaceFolder}/recursion/bin"
@@ -53,7 +53,7 @@
             "name": "Indirect Recursion",
             "request": "launch",
             "mainClass": "recursion.Indirect",
-            "preLaunchTask": "Compile",
+            "preLaunchTask": "Compile-Recursion",
             "cwd": "${workspaceFolder}",
             "classPaths": [
                 "${workspaceFolder}/recursion/bin"
@@ -64,7 +64,7 @@
             "name": "Nested Recursion",
             "request": "launch",
             "mainClass": "recursion.Nested",
-            "preLaunchTask": "Compile",
+            "preLaunchTask": "Compile-Recursion",
             "cwd": "${workspaceFolder}",
             "classPaths": [
                 "${workspaceFolder}/recursion/bin"
@@ -75,7 +75,7 @@
             "name": "Sum of Natural Number",
             "request": "launch",
             "mainClass": "recursion.NatNumSum",
-            "preLaunchTask": "Compile",
+            "preLaunchTask": "Compile-Recursion",
             "cwd": "${workspaceFolder}",
             "classPaths": [
                 "${workspaceFolder}/recursion/bin"
@@ -86,7 +86,7 @@
             "name": "Factorial",
             "request": "launch",
             "mainClass": "recursion.Factorial",
-            "preLaunchTask": "Compile",
+            "preLaunchTask": "Compile-Recursion",
             "cwd": "${workspaceFolder}",
             "classPaths": [
                 "${workspaceFolder}/recursion/bin"
@@ -97,7 +97,7 @@
             "name": "Exponent",
             "request": "launch",
             "mainClass": "recursion.Exponent",
-            "preLaunchTask": "Compile",
+            "preLaunchTask": "Compile-Recursion",
             "cwd": "${workspaceFolder}",
             "classPaths": [
                 "${workspaceFolder}/recursion/bin"
@@ -108,11 +108,27 @@
             "name": "TaylorSeries",
             "request": "launch",
             "mainClass": "recursion.TaylorSeries",
-            "preLaunchTask": "Compile",
+            "preLaunchTask": "Compile-Recursion",
             "cwd": "${workspaceFolder}",
             "classPaths": [
                 "${workspaceFolder}/recursion/bin"
             ]
+        },
+        {
+            "type": "java",
+            "name": "Initialization",
+            "request": "launch",
+            "mainClass": "arrays.Initialization",
+            "preLaunchTask": "Compile-Array",
+            "classPaths": ["${workspaceFolder}/arrays/bin"]
+        },
+        {
+            "type": "java",
+            "name": "Dynamic",
+            "request": "launch",
+            "mainClass": "arrays.Dynamic",
+            "preLaunchTask": "Compile-Array",
+            "classPaths": ["${workspaceFolder}/arrays/bin"]
         }
     ]
 }

@@ -147,6 +147,19 @@
             "externalConsole": false,
             "MIMode": "lldb",
             "preLaunchTask": "Initialization"
+        },
+        {
+            "name": "Dynamic",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/arrays/bin/dynamic.o",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "preLaunchTask": "Dynamic"
         }
     ]
 }

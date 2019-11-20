@@ -57,6 +57,11 @@
             "label": "Initialization",
             "type": "shell",
             "command": "g++ -g ${workspaceFolder}/arrays/initialization.cpp -o ${workspaceFolder}/arrays/bin/initialization.o"
+        },
+        {
+            "label": "Dynamic",
+            "type": "shell",
+            "command": "g++ -g ${workspaceFolder}/arrays/dynamic.cpp -o ${workspaceFolder}/arrays/bin/dynamic.o"
         }
     ]
 }
