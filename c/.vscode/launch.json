@@ -170,5 +170,31 @@
             "MIMode": "lldb",
             "preLaunchTask": "dynamic"
         },
+        {
+            "name": "2-D-Array",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/arrays/bin/two-D-array.o",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "preLaunchTask": "2-D-Array"
+        },
+        {
+            "name": "Operation",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/arrays/bin/operation.o",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "preLaunchTask": "Operation"
+        },
     ]
 }

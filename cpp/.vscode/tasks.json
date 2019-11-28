@@ -62,6 +62,11 @@
             "label": "Dynamic",
             "type": "shell",
             "command": "g++ -g ${workspaceFolder}/arrays/dynamic.cpp -o ${workspaceFolder}/arrays/bin/dynamic.o"
+        },
+        {
+            "label": "2-D-Array",
+            "type": "shell",
+            "command": "g++ -g ${workspaceFolder}/arrays/two-D-array.cpp -o ${workspaceFolder}/arrays/bin/two-D-array.o"
         }
     ]
 }

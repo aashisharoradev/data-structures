@@ -67,6 +67,16 @@
             "label": "dynamic",
             "type": "shell",
             "command": "gcc -g ${workspaceFolder}/arrays/dynamic.c -o ${workspaceFolder}/arrays/bin/dynamic.o"
+        },
+        {
+            "label": "2-D-Array",
+            "type": "shell",
+            "command": "gcc -g ${workspaceFolder}/arrays/two-D-array.c -o ${workspaceFolder}/arrays/bin/two-D-array.o"
+        },
+        {
+            "label": "Operation",
+            "type": "shell",
+            "command": "gcc -g ${workspaceFolder}/arrays/operation.c -o ${workspaceFolder}/arrays/bin/operation.o"
         }
     ]
 }
