@@ -6,6 +6,7 @@ void createArray(int **b, int size) {
         printf("making sure array size is 0 \n");
         *b = (int *) malloc(size * sizeof(int *));
     }
+    return;
 }
 
 void printOptions(int length) {
@@ -21,6 +22,7 @@ void printOptions(int length) {
     printf("\n");
     printf("================================================================== \n");
     printf("\n");
+    return;
 }
 
 void displayArray(int *arrayValue, int length) {
@@ -31,6 +33,7 @@ void displayArray(int *arrayValue, int length) {
         printf("value of array a[%d] :: %d \n", i, i[arrayValue]);
     }
     printf("====================Printing-Array-Done============================ \n\n");
+    return;
 }
 
 void addArray(int *arrayValue, int *length, int value, int size) {
@@ -40,9 +43,19 @@ void addArray(int *arrayValue, int *length, int value, int size) {
     }
     arrayValue[*length] = value;
     *length = *length + 1;
+    return;
 }
 
-void insertArray(int *arrayValue, int *length, int value, int index) {}
+void insertArray(int *arrayValue, int *length, int value, int index) {
+    int i = 0;
+
+    for (i = (*length-1); i >= index; i--)
+    {
+        arrayValue[i] = arrayValue[i-1];
+    }
+    arrayValue[index-1] = value;
+    return;
+}
 
 int main(int argc, const char *argv[]) {
     int *a;
@@ -55,8 +68,6 @@ int main(int argc, const char *argv[]) {
     {
         printOptions(length);
         scanf("%d", &o);
-        fflush(stdin);
-        printf("value of options %d \n", o);
         switch (o)
         {
         case 1:
@@ -74,6 +85,9 @@ int main(int argc, const char *argv[]) {
             scanf("%d", &value);
             printf("Enter index where you want to insert \n");
             scanf("%d", &index);
+            if(value > 0 && index < size) {
+                insertArray(a, &length, value, index);
+            }
             break;
         default:
             goto exit_loop;
