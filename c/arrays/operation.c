@@ -48,7 +48,11 @@ void addValue(int *arrayValue, int *length, int value, int size) {
 
 void insertArray(int *arrayValue, int *length, int value, int index) {
     int i = 0;
-
+    if (index < 0 && index > *length)
+    {
+        printf("index can not be greater than length of array");
+        return;
+    }
     for (i = (*length-1); i >= index; i--)
     {
         arrayValue[i] = arrayValue[i-1];

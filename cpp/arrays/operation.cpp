@@ -53,9 +53,9 @@ void addValue(struct Array *b, int value) {
 
 void insertValue(struct Array *b, int value, int index) {
     int i;
-    if (index > b->size)
+    if (index < 0 && index > b->length)
     {
-        cout << "index can not be greater than size of array" << endl;
+        cout << "index can not be greater than length of array" << endl;
         return;
     }
 
@@ -66,9 +66,6 @@ void insertValue(struct Array *b, int value, int index) {
 
     b->array[index - 1] = value;
     
-    if(!(b->length >= index)) {
-        b->length = b->length + 1;
-    }
     return;
 }
 
