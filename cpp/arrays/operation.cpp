@@ -1,5 +1,6 @@
 #include<iostream>
 #include<new>
+#include<math.h>
 using namespace std;
 
 struct Array
@@ -25,6 +26,8 @@ void printOptions(int length) {
     cout<<"enter 2 for Add Element in Array "<<endl;
     cout<<"enter 3 for Insert Element in Array "<<endl;
     cout<<"enter 4 for Delete Element in Array "<<endl;
+    cout<<"enter 5 for linear Search element in Array "<<endl;
+    cout<<"enter 6 for Binary Search element in Array "<<endl;
     cout<<endl;
     cout<<"=================================================================="<<endl;
     cout<<endl;
@@ -86,6 +89,85 @@ void deleteElement(struct Array *b, int index) {
     return;
 }
 
+int linearSearchArray(struct Array *b, int value) {
+    int i;
+    for (i = 0; i < b->length; i++)
+    {
+        if(b->array[i] == value) {
+            return i;
+        }
+    }
+    return -1;
+}
+
+void swapIndexValue(int *arrayValue, int sourceIndex, int targetIndex) {
+    int temp;
+    temp = arrayValue[sourceIndex];
+    arrayValue[sourceIndex] = arrayValue[targetIndex];
+    arrayValue[targetIndex] = temp;
+    return;
+}
+
+int linearSearchArrayWithTranspostion(struct Array *b, int value) {
+    int i, temp;
+    for (i = 0; i < b->length; i++)
+    {
+        if(b->array[i] == value) {
+            if(i-1 > 0) {
+                swapIndexValue(b->array, i, i - 1);
+            }
+
+            return (i-1 > 0) ? i-1 : 0;
+        }
+    }
+    return -1;
+}
+
+int linearSearchArrayWithMoveToHead(struct Array *b, int value) {
+    int i, temp;
+    for (i = 0; i < b->length; i++)
+    {
+        if(b->array[i] == value) {
+            swapIndexValue(b->array, i, 0);
+            return 0;
+        }
+    }
+    return -1;
+}
+
+void bubbleSort(int *array, int length) {
+    int i, j;
+    for (i = 0; i < length - 1; i++)
+    {
+        for (j = 0; j < length - i - 1; j++) {
+            if(array[j] > array[j+1]) {
+                swapIndexValue(array, j+1, j);
+            }
+        }
+    }
+    
+}
+
+int binarySearchArray(struct Array *b, int value) {
+    int l=0, h=b->length-1, mid=(b->length-1)/2;
+    bubbleSort(b->array, b->length);
+    while (l <= h)
+    {
+        if(b->array[mid] == value) {
+            return mid;
+        }
+        else if (b->array[mid] > value) {
+            h = mid - 1;
+            mid = floor((h + l) / 2);
+        }
+        else {
+            l = mid + 1;  
+            mid = ceil((h + l) / 2);
+        }
+    }
+    return -1;
+}
+
 int main(int argc, char const *argv[])
 {
     int o, value, index;
@@ -121,6 +203,18 @@ int main(int argc, char const *argv[])
             cin >> index;
             deleteElement(&a, index);
             break;
+        case 5:
+            cout << "Enter the value you want to element" << endl;
+            cin >> value;
+            cout << "index for key " << value << " is " << linearSearchArray(&a, value) << endl;
+            cout << "index for key " << value << " is " << linearSearchArrayWithTranspostion(&a, value) << endl;
+            cout << "index for key " << value << " is " << linearSearchArrayWithMoveToHead(&a, value) << endl;
+            break;
+        case 6:
+            cout << "Enter the value you want to element" << endl;
+            cin >> value;
+            cout << "index for key " << value << " is " << binarySearchArray(&a, value) << " calculated using binarSearch"<< endl;
+
         default:
             goto exit_loop;
             break;
