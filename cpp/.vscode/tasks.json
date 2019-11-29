@@ -67,6 +67,11 @@
             "label": "2-D-Array",
             "type": "shell",
             "command": "g++ -g ${workspaceFolder}/arrays/two-D-array.cpp -o ${workspaceFolder}/arrays/bin/two-D-array.o"
+        },
+        {
+            "label": "Operation",
+            "type": "shell",
+            "command": "g++ -g ${workspaceFolder}/arrays/operation.c -o ${workspaceFolder}/arrays/bin/operation.o"
         }
     ]
 }

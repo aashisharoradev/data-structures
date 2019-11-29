@@ -36,7 +36,7 @@ void displayArray(int *arrayValue, int length) {
     return;
 }
 
-void addArray(int *arrayValue, int *length, int value, int size) {
+void addValue(int *arrayValue, int *length, int value, int size) {
     if((*length + 1) > size) {
         printf("New record can not be added as size is %d \n", size);
         return;
@@ -77,7 +77,7 @@ int main(int argc, const char *argv[]) {
             printf("Enter the value you want to add \n");
             scanf("%d", &value);
             if(value > 0) {
-                addArray(a, &length, value, size);
+                addValue(a, &length, value, size);
             }
             break;
         case 3:
