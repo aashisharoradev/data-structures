@@ -22,8 +22,9 @@ void printOptions(int length) {
     cout<<"=================================================================="<<endl;
     cout<<endl;
     cout<<"enter 1 for Display Array "<<endl;
-    cout<<"enter 2 for Add in Array "<<endl;
-    cout<<"enter 3 for Insert in Array "<<endl;
+    cout<<"enter 2 for Add Element in Array "<<endl;
+    cout<<"enter 3 for Insert Element in Array "<<endl;
+    cout<<"enter 4 for Delete Element in Array "<<endl;
     cout<<endl;
     cout<<"=================================================================="<<endl;
     cout<<endl;
@@ -69,6 +70,22 @@ void insertValue(struct Array *b, int value, int index) {
     return;
 }
 
+void deleteElement(struct Array *b, int index) {
+    int i;
+    if (index > b->length)
+    {
+        cout << "Index can not be greater than lenght of array" << endl;
+        return;
+    }
+
+    for (i = index; i < b->length -1; i++)
+    {
+        b->array[i] = b->array[i + 1];
+    }
+    b->length = b->length - 1;
+    return;
+}
+
 int main(int argc, char const *argv[])
 {
     int o, value, index;
@@ -98,6 +115,11 @@ int main(int argc, char const *argv[])
             cout << "Enter the index position where value needs to inserted" << endl;
             cin >> index;
             insertValue(&a, value, index);
+            break;
+        case 4:
+            cout << "Enter the index position where value needs to deleted" << endl;
+            cin >> index;
+            deleteElement(&a, index);
             break;
         default:
             goto exit_loop;

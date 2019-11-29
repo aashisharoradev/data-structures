@@ -17,8 +17,9 @@ void printOptions(int length) {
     printf("================================================================== \n");
     printf("\n");
     printf("enter 1 for Display Array \n");
-    printf("enter 2 for Add in Array \n");
-    printf("enter 3 for Insert in Array \n");
+    printf("enter 2 for Add Element in Array \n");
+    printf("enter 3 for Insert Element in Array \n");
+    printf("enter 4 for Delete element in Array \n");
     printf("\n");
     printf("================================================================== \n");
     printf("\n");
@@ -61,6 +62,21 @@ void insertArray(int *arrayValue, int *length, int value, int index) {
     return;
 }
 
+void deleteArray(int *arrayValue, int *length, int index) {
+    int i;
+    if (index > *length) {
+        printf("Index can not be greater than lenght of array \n");
+        return ;
+    }
+
+    for (i = index; i < *length -1; i++)
+    {
+        arrayValue[i] = arrayValue[i+1];
+    }
+    *length = *length - 1;
+    return;
+}
+
 int main(int argc, const char *argv[]) {
     int *a;
     int length = 0, size=0, i, o=100, value, index;
@@ -89,9 +105,12 @@ int main(int argc, const char *argv[]) {
             scanf("%d", &value);
             printf("Enter index where you want to insert \n");
             scanf("%d", &index);
-            if(value > 0 && index < size) {
-                insertArray(a, &length, value, index);
-            }
+            insertArray(a, &length, value, index);
+            break;
+        case 4:
+            printf("Enter index where you want to delete \n");
+            scanf("%d", &index);
+            deleteArray(a, &length, index);
             break;
         default:
             goto exit_loop;
