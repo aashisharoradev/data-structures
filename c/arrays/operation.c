@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<math.h>
+#include <stdbool.h>
 
 void createArray(int **b, int size) {
     if(*b == NULL) {
@@ -23,6 +24,14 @@ void printOptions(int length) {
     printf("enter 4 for Delete element in Array \n");
     printf("enter 5 for linear Search element in Array \n");
     printf("enter 6 for Binary Search element in Array \n");
+    printf("enter 7 for get element in Array \n");
+    printf("enter 8 for set element in Array \n");
+    printf("enter 9 for maximum element in Array \n");
+    printf("enter 10 for minimum element in Array \n");
+    printf("enter 11 for sum of all elements in Array \n");
+    printf("enter 12 for average of all elements in Array \n");
+    printf("enter 13 for reversing array elements \n");
+    printf("enter 14 for insert in sorted array elements \n");
     printf("\n");
     printf("================================================================== \n");
     printf("\n");
@@ -116,15 +125,8 @@ int binarySearchArray(int *arrayValue, int value, int length) {
     int l=0, h=length-1, mid=(length-1)/2;
     bubbleSort(arrayValue, length); // for binary array search array needs to be sorted, we sorted array using bubble sort
     displayArray(arrayValue, length);
-    printf("high index :: %d \n", h);
-    printf("low index :: %d \n", l);
-    printf("mid index :: %d \n", mid);
     while (l <= h)
     {
-        printf("high index :: %d \n", h);
-        printf("low index :: %d \n", l);
-        printf("mid index :: %d \n", mid);
-        
         if(arrayValue[mid] == value) {
             return mid;
         }
@@ -167,6 +169,91 @@ int linearSearchArrayWithMoveToHead(int *arrayValue, int value, int length) {
     return -1;
 }
 
+int getElement(int *arrayValue, int index) {
+    return arrayValue[index];
+}
+
+void setElement(int *arrayValue, int value, int index) {
+    arrayValue[index] = value;
+}
+
+int max(int *arrayValue, int length) {
+    int max = arrayValue[0];
+    int i;
+    for (i = 1; i < length; i++)
+    {
+        if(max < arrayValue[i]) {
+            max = arrayValue[i];
+        }
+    }
+    
+    return max;
+}
+
+int min(int *arrayValue, int length) {
+    int min = arrayValue[0];
+    int i;
+    for (i = 1; i < length; i++)
+    {
+        if(min > arrayValue[i]) {
+            min = arrayValue[i];
+        }
+    }
+    
+    return min;
+}
+
+int sum(int *arrayValue, int length) {
+    int sum = 0;
+    int i;
+    for (i = 0; i < length; i++)
+    {
+        sum+=arrayValue[i];
+    }
+    
+    return sum;
+}
+
+void reverseArray(int *arrayValue, int length) {
+    int i;
+    for (i = 0; i < length/2; i++)
+    {
+        swapIndexValue(arrayValue, i, length-1-i);
+    }
+}
+
+bool isArraySorted(int *arrayValue, int length) {
+    int i;
+    for (i = 0; i < length; i++)
+    {
+        if(arrayValue[i] > arrayValue[i+1]) {
+            return false;
+        }
+    }
+    
+    return true;
+}
+
+void insertValueSortedArray(int *arrayValue, int value, int length) {
+    int i;
+    bool isSorted = isArraySorted(arrayValue, length);
+    
+    if(isSorted == false) {
+        printf("provided array is not sorted \n");
+        bubbleSort(arrayValue, length);
+    }
+
+    for (i = length; i > 0; i--) 
+    {
+        if(value > arrayValue[i-1]) {
+            arrayValue[i] = value;
+            break;
+        } else {
+            arrayValue[i] = arrayValue[i-1];
+        }
+    }
+    
+}
 int main(int argc, const char *argv[]) {
     int *a;
     int length = 0, size=0, i, o=100, value, index;
@@ -213,6 +300,45 @@ int main(int argc, const char *argv[]) {
             printf("Enter the value you want to element \n");
             scanf("%d", &value);
             printf("index for key %d = %d \n",value, binarySearchArray(a, value, length));
+            break;
+        case 7:
+            printf("Enter the index for which you want an element");
+            scanf("%d", &index);
+            if(index < 0 && index > length) {
+                printf("Invalid Index");
+            } else {
+                printf("Element at index %d is %d", index, getElement(a, index));
+            }
+        case 8:
+            printf("Enter the index for which you want an element");
+            scanf("%d", &index);
+            printf("Enter the Element value");
+            scanf("%d", &value);
+            if(index < 0 && index > length) {
+                printf("Invalid Index");
+            } else {
+                setElement(a, value, index);
+            }
+            break;
+        case 9:
+            printf("Max Element of Array is %d \n", max(a, length));
+            break;
+        case 10:
+            printf("Min Element of Array is %d \n", min(a, length));
+            break;
+        case 11:
+            printf("Sum Of all Elementf of Array is %d \n", sum(a, length));
+            break;
+        case 12:
+            printf("Avg of all Elements of Array is %lf \n", (double)(sum(a, length)/length));
+            break;
+        case 13:
+            reverseArray(a, length);
+            break;
+        case 14:
+            printf("Enter the Element value\n");
+            scanf("%d", &value);
+            insertValueSortedArray(a, value, length);
             break;
         default:
             goto exit_loop;
