@@ -263,7 +263,8 @@ void insertValueSortedArray(struct Array *a, int value) {
             a->A[i] = value;
             break;
         } else {
-            a->A[i] = a->A[i - 1]; 
+            a->A[i] = a->A[i - 1];
+            a->A[i - 1] = value;
         }
     }
      a->length = a->length + 1;
