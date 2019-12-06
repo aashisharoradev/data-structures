@@ -196,5 +196,14 @@
             "MIMode": "lldb",
             "preLaunchTask": "Operation"
         },
+        {
+            "name": "(lldb) Attach",
+            "type": "cppdbg",
+            "request": "attach",
+            "program": "${workspaceFolder}/arrays/bin/operation.o",
+            "processId": "${command:pickProcess}",
+            "MIMode": "lldb",
+            "miDebuggerPath": "/usr/bin/lldb"
+        }
     ]
 }

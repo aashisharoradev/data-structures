@@ -11,10 +11,8 @@ struct Array
 };
 
 void createArray(struct Array *a) {
-    if(a->A == NULL) {
-        printf("making sure array size is 0 \n");
-        a->A = (int *) malloc(a->size * sizeof(int *));
-    }
+    a->A = (int *) malloc(a->size * sizeof(int));
+    a->length = 0;
     return;
 }
 
@@ -39,6 +37,7 @@ void printOptions(struct Array *a) {
     printf("enter 12 for average of all elements in Array \n");
     printf("enter 13 for reversing array elements \n");
     printf("enter 14 for insert in sorted array elements \n");
+    printf("enter 15 for merge Array elements \n");
     printf("\n");
     printf("================================================================== \n");
     printf("\n");
@@ -57,7 +56,8 @@ void displayArray(struct Array *a) {
 }
 
 void addValue(struct Array *a, int value) {
-    if((a->length + 1) > a->size) {
+    if (a->length >= a->size)
+    {
         printf("New record can not be added as size is %d \n", a->size);
         return;
     }
@@ -271,9 +271,185 @@ void insertValueSortedArray(struct Array *a, int value) {
     
     
 }
+void cleanup(struct Array *a) {
+    if(a->A !=NULL) {
+        printf("cleaning up array\n");
+        free(a->A);
+        a->A = NULL;
+    }
+}
+struct Array* mergeArray(struct Array *a, struct Array *b) {
+    int i,j;
+    struct Array c;
+    c.size = a->length + b->length;
+    createArray(&c);
+    c.length = a->length + b->length;
+    
+    for (i = 0; i < a->length; i++)
+    {
+        c.A[i] = a->A[i];
+    }
+   
+    i = b->length;
+    
+    for (i=a->length,j=0; i < c.length && j<b->length; i++,j++)
+    {
+       
+        c.A[i] = b->A[j];
+    }
+
+    return &c;
+}
+struct Array* mergeSortedArray(struct Array *a, struct Array *b) {
+    int i = 0, j = 0, k=0;
+    bool isSorted = true;
+    struct Array c;
+    isSorted = isArraySorted(a);
+    c.size = a->length + b->length;
+    if (isSorted == false)
+    {
+        bubbleSort(a);
+    }
+
+    isSorted = true;
+    isSorted = isArraySorted(b);
+
+    if(isSorted == false) {
+        bubbleSort(b);
+    }
+    createArray(&c);
+    c.length = a->length + b->length;
+    while (i < a->length && j < b->length)
+    {
+        if(a->A[i] < b->A[j]) {
+            c.A[k] = a->A[i];
+            k++;
+            i++;
+        }
+        else
+        {
+            c.A[k] = b->A[j];
+            k++;
+            j++;
+        }
+    }
+
+    for (; i < a->length;i++) {
+        c.A[k] = a->A[i];
+        k++;
+    }
+
+    for (; j < a->length;j++) {
+        c.A[k] = b->A[j];
+        k++;
+    }
+
+    return &c;
+}
+
+struct Array* unionSortedArray(struct Array *a, struct Array *b) {
+    int i=0,j=0;
+    bool isSorted = true;
+    struct Array c;
+    isSorted = isArraySorted(a);
+    c.size = a->length + b->length;
+    if (isSorted == false)
+    {
+        bubbleSort(a);
+    }
+
+    isSorted = true;
+    isSorted = isArraySorted(b);
+
+    if(isSorted == false) {
+        bubbleSort(b);
+    }
+    createArray(&c);
+
+    while (i < a->length && j < b->length)
+    {
+        if(a->A[i] == b->A[j]) {
+            c.A[c.length] = a->A[i];
+            c.length++;
+            i++;
+            j++;
+        } else if(a->A[i] < b->A[j]) {
+            c.A[c.length] = a->A[i];
+            c.length++;
+            i++;
+        }
+        else
+        {
+            c.A[c.length] = b->A[j];
+            c.length++;
+            j++;
+        }
+    }
+    
+    for (; i < a->length; i++)
+    {
+        c.A[c.length] = a->A[i];
+        c.length++;
+    }
+    
+    for (; j < b->length; j++)
+    {
+        c.A[c.length] = b->A[j];
+        c.length++;
+    }
+
+    return &c;
+}
+
+struct Array* intersectSortedArray(struct Array *a, struct Array *b) {
+    int i=0,j=0;
+    bool isSorted = true;
+    struct Array c;
+    isSorted = isArraySorted(a);
+    
+    if (isSorted == false)
+    {
+        bubbleSort(a);
+    }
+
+    isSorted = true;
+    isSorted = isArraySorted(b);
+
+    if(isSorted == false) {
+        bubbleSort(b);
+    }
+
+    if(a->length > b->length) {
+        c.size = a->length;
+    }
+    else
+    {
+        c.size = b->length;
+    }
+    createArray(&c);
+
+    while (i < a->length && j < b->length)
+    {
+        if(a->A[i] == b->A[j]) {
+            c.A[c.length] = a->A[i];
+            c.length++;
+            i++;
+            j++;
+        }
+        else if(a->A[i] < b->A[j]) {
+            i++;
+        } else {
+            j++;
+        }
+    }
+    return &c;
+}
+
 int main(int argc, const char *argv[]) {
-    int i, o=100, value, index;
+    int i, o=100, value, index, len;
     struct Array a;
+    struct Array b = {NULL, 0, 0};
+    struct Array c;
     printf("Enter the size of array you want to create \n");
     scanf("%d", &(a.size));
     createArray(&a);
@@ -358,6 +534,28 @@ int main(int argc, const char *argv[]) {
             scanf("%d", &value);
             insertValueSortedArray(&a, value);
             break;
+        case 15:
+            printf("Enter the size of Array you want to merge \n");
+            scanf("%d", &b.size);
+            createArray(&b);
+            for (i = 0; i < b.size; i++)
+            {
+                printf("enter value \n");
+                scanf("%d", &value);
+                addValue(&b, value);
+            }
+            c = *mergeArray(&a, &b);
+            displayArray(&c);
+            cleanup(&c);
+            c = *mergeSortedArray(&a, &b);
+            displayArray(&c);
+            cleanup(&c);
+            c = *unionSortedArray(&a, &b);
+            displayArray(&c);
+            cleanup(&c);
+            c = *intersectSortedArray(&a, &b);
+            displayArray(&c);
+            break;
         default:
             goto exit_loop;
             break;
@@ -365,14 +563,10 @@ int main(int argc, const char *argv[]) {
     }
     
 exit_loop:
-
-    if(a.A != NULL) {
-        printf("cleaning up array \n");
-        free(a.A);
-        a.A = NULL;
-    }
+    cleanup(&a);
+    cleanup(&b);
+    cleanup(&c);
     return 0;
-
 }
 
 
