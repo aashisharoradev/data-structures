@@ -3,17 +3,24 @@
 #include<math.h>
 #include <stdbool.h>
 
-void createArray(int **b, int size) {
-    if(*b == NULL) {
+struct Array
+{
+    int *A;
+    int size;
+    int length;
+};
+
+void createArray(struct Array *a) {
+    if(a->A == NULL) {
         printf("making sure array size is 0 \n");
-        *b = (int *) malloc(size * sizeof(int *));
+        a->A = (int *) malloc(a->size * sizeof(int *));
     }
     return;
 }
 
-void printOptions(int length) {
+void printOptions(struct Array *a) {
     printf("================================================================== \n");
-    printf("Current length of array is : %d\n", length);
+    printf("Current length of array is : %d\n", a->length);
     printf("Select following values for the required operations : \n");
     printf("\n");
     printf("================================================================== \n");
@@ -38,62 +45,62 @@ void printOptions(int length) {
     return;
 }
 
-void displayArray(int *arrayValue, int length) {
+void displayArray(struct Array *a) {
     int i;
     printf("=======================Printing-Array============================== \n\n");
-    for (i = 0; i < length; i++)
+    for (i = 0; i < a->length; i++)
     {
-        printf("value of array a[%d] :: %d \n", i, i[arrayValue]);
+        printf("value of array a[%d] :: %d \n", i, i[a->A]);
     }
     printf("====================Printing-Array-Done============================ \n\n");
     return;
 }
 
-void addValue(int *arrayValue, int *length, int value, int size) {
-    if((*length + 1) > size) {
-        printf("New record can not be added as size is %d \n", size);
+void addValue(struct Array *a, int value) {
+    if((a->length + 1) > a->size) {
+        printf("New record can not be added as size is %d \n", a->size);
         return;
     }
-    arrayValue[*length] = value;
-    *length = *length + 1;
+    a->A[a->length] = value;
+    a->length = a->length + 1;
     return;
 }
 
-void insertArray(int *arrayValue, int *length, int value, int index) {
+void insertArray(struct Array *a, int value, int index) {
     int i = 0;
-    if (index < 0 && index > *length)
+    if (index < 0 && index > a->length)
     {
         printf("index can not be greater than length of array");
         return;
     }
-    for (i = (*length-1); i >= index; i--)
+    for (i = (a->length-1); i >= index; i--)
     {
-        arrayValue[i] = arrayValue[i-1];
+        a->A[i] = a->A[i-1];
     }
-    arrayValue[index-1] = value;
+    a->A[index-1] = value;
     return;
 }
 
-void deleteArray(int *arrayValue, int *length, int index) {
+void deleteArray(struct Array *a, int index) {
     int i;
-    if (index > *length) {
+    if (index > a->length) {
         printf("Index can not be greater than lenght of array \n");
         return ;
     }
 
-    for (i = index; i < *length -1; i++)
+    for (i = index; i < a->length -1; i++)
     {
-        arrayValue[i] = arrayValue[i+1];
+        a->A[i] = a->A[i+1];
     }
-    *length = *length - 1;
+    a->length = a->length - 1;
     return;
 }
 
-int linearSearchArray(int *arrayValue, int value, int length) {
+int linearSearchArray(struct Array *a, int value) {
     int i;
-    for (i = 0; i < length; i++)
+    for (i = 0; i < a->length; i++)
     {
-        if(arrayValue[i] == value) {
+        if(a->A[i] == value) {
             return i;
         }
     }
@@ -108,29 +115,29 @@ void swapIndexValue(int *arrayValue, int sourceIndex, int targetIndex) {
     return;
 }
 
-void bubbleSort(int *arrayValue, int length) {
+void bubbleSort(struct Array *a) {
     int i, j, flag=0;
-    for (i = 0; i < length - 1; i++)
+    for (i = 0; i < a->length - 1; i++)
     {
-        for (j = 0; j < length -i -1; j++)
+        for (j = 0; j < a->length -i -1; j++)
         {
-            if(arrayValue[j] > arrayValue[j+1]) {
-                swapIndexValue(arrayValue, j+1, j);
+            if(a->A[j] > a->A[j+1]) {
+                swapIndexValue(a->A, j+1, j);
             }
         }
     }
     
 }
-int binarySearchArray(int *arrayValue, int value, int length) {
-    int l=0, h=length-1, mid=(length-1)/2;
-    bubbleSort(arrayValue, length); // for binary array search array needs to be sorted, we sorted array using bubble sort
-    displayArray(arrayValue, length);
+int binarySearchArray(struct Array *a, int value) {
+    int l=0, h=a->length-1, mid=(a->length-1)/2;
+    bubbleSort(a); // for binary array search array needs to be sorted, we sorted array using bubble sort
+    displayArray(a);
     while (l <= h)
     {
-        if(arrayValue[mid] == value) {
+        if(a->A[mid] == value) {
             return mid;
         }
-        else if (arrayValue[mid] > value) {
+        else if (a->A[mid] > value) {
             h = mid - 1;
             mid = floor((h + l) / 2);
         }
@@ -142,13 +149,13 @@ int binarySearchArray(int *arrayValue, int value, int length) {
     return -1;
 }
 
-int linearSearchArrayWithTranspostion(int *arrayValue, int value, int length) {
+int linearSearchArrayWithTranspostion(struct Array *a, int value) {
     int i, temp;
-    for (i = 0; i < length; i++)
+    for (i = 0; i < a->length; i++)
     {
-        if(arrayValue[i] == value) {
+        if(a->A[i] == value) {
             if(i-1 > 0) {
-                swapIndexValue(arrayValue, i, i - 1);
+                swapIndexValue(a->A, i, i - 1);
             }
 
             return (i-1 > 0) ? i-1 : 0;
@@ -157,76 +164,76 @@ int linearSearchArrayWithTranspostion(int *arrayValue, int value, int length) {
     return -1;
 }
 
-int linearSearchArrayWithMoveToHead(int *arrayValue, int value, int length) {
+int linearSearchArrayWithMoveToHead(struct Array *a, int value) {
     int i, temp;
-    for (i = 0; i < length; i++)
+    for (i = 0; i < a->length; i++)
     {
-        if(arrayValue[i] == value) {
-            swapIndexValue(arrayValue, i, 0);
+        if(a->A[i] == value) {
+            swapIndexValue(a->A, i, 0);
             return 0;
         }
     }
     return -1;
 }
 
-int getElement(int *arrayValue, int index) {
-    return arrayValue[index];
+int getElement(struct Array *a, int index) {
+    return a->A[index];
 }
 
-void setElement(int *arrayValue, int value, int index) {
-    arrayValue[index] = value;
+void setElement(struct Array *a, int value, int index) {
+    a->A[index] = value;
 }
 
-int max(int *arrayValue, int length) {
-    int max = arrayValue[0];
+int max(struct Array *a) {
+    int max = a->A[0];
     int i;
-    for (i = 1; i < length; i++)
+    for (i = 1; i < a->length; i++)
     {
-        if(max < arrayValue[i]) {
-            max = arrayValue[i];
+        if(max < a->A[i]) {
+            max = a->A[i];
         }
     }
     
     return max;
 }
 
-int min(int *arrayValue, int length) {
-    int min = arrayValue[0];
+int min(struct Array *a) {
+    int min = a->A[0];
     int i;
-    for (i = 1; i < length; i++)
+    for (i = 1; i < a->length; i++)
     {
-        if(min > arrayValue[i]) {
-            min = arrayValue[i];
+        if(min > a->A[i]) {
+            min = a->A[i];
         }
     }
     
     return min;
 }
 
-int sum(int *arrayValue, int length) {
+int sum(struct Array *a) {
     int sum = 0;
     int i;
-    for (i = 0; i < length; i++)
+    for (i = 0; i < a->length; i++)
     {
-        sum+=arrayValue[i];
+        sum+=a->A[i];
     }
     
     return sum;
 }
 
-void reverseArray(int *arrayValue, int length) {
+void reverseArray(struct Array *a) {
     int i;
-    for (i = 0; i < length/2; i++)
+    for (i = 0; i < a->length/2; i++)
     {
-        swapIndexValue(arrayValue, i, length-1-i);
+        swapIndexValue(a->A, i, a->length-1-i);
     }
 }
 
-bool isArraySorted(int *arrayValue, int length) {
+bool isArraySorted(struct Array *a) {
     int i;
-    for (i = 0; i < length; i++)
+    for (i = 0; i < a->length; i++)
     {
-        if(arrayValue[i] > arrayValue[i+1]) {
+        if(a->A[i] > a->A[i+1]) {
             return false;
         }
     }
@@ -234,47 +241,56 @@ bool isArraySorted(int *arrayValue, int length) {
     return true;
 }
 
-void insertValueSortedArray(int *arrayValue, int value, int length) {
+void insertValueSortedArray(struct Array *a, int value) {
     int i;
-    bool isSorted = isArraySorted(arrayValue, length);
-    
-    if(isSorted == false) {
+    bool isSorted = true;
+    if (a->length + 1 > a->size)
+    {
+        printf("Array is full, element can not be inserted");
+        return;
+    }
+    isSorted = isArraySorted(a);
+    if (isSorted == false)
+    {
         printf("provided array is not sorted \n");
-        bubbleSort(arrayValue, length);
+        bubbleSort(a);
     }
 
-    for (i = length; i > 0; i--) 
+    for (i = a->length; i > 0; i--)
     {
-        if(value > arrayValue[i-1]) {
-            arrayValue[i] = value;
+        
+        if(value > a->A[i-1]) {
+            a->A[i] = value;
             break;
         } else {
-            arrayValue[i] = arrayValue[i-1];
+            a->A[i] = a->A[i - 1]; 
         }
     }
+     a->length = a->length + 1;
+    
     
 }
 int main(int argc, const char *argv[]) {
-    int *a;
-    int length = 0, size=0, i, o=100, value, index;
+    int i, o=100, value, index;
+    struct Array a;
     printf("Enter the size of array you want to create \n");
-    scanf(" %d", &size);
-    createArray(&a ,size);
+    scanf("%d", &(a.size));
+    createArray(&a);
     
     while (1)
     {
-        printOptions(length);
+        printOptions(&a);
         scanf("%d", &o);
         switch (o)
         {
         case 1:
-            displayArray(a, length);
+            displayArray(&a);
             break;
         case 2:
             printf("Enter the value you want to add \n");
             scanf("%d", &value);
-            if(value > 0) {
-                addValue(a, &length, value, size);
+            if(value >= 0) {
+                addValue(&a, value);
             }
             break;
         case 3:
@@ -282,63 +298,64 @@ int main(int argc, const char *argv[]) {
             scanf("%d", &value);
             printf("Enter index where you want to insert \n");
             scanf("%d", &index);
-            insertArray(a, &length, value, index);
+            insertArray(&a, value, index);
             break;
         case 4:
             printf("Enter index where you want to delete \n");
             scanf("%d", &index);
-            deleteArray(a, &length, index);
+            deleteArray(&a, index);
             break;
         case 5:
             printf("Enter the value you want to element \n");
             scanf("%d", &value);
-            printf("index for key %d = %d \n",value, linearSearchArray(a, value, length));
-            printf("index for key %d = %d \n",value, linearSearchArrayWithTranspostion(a, value, length));
-            printf("index for key %d = %d \n",value, linearSearchArrayWithMoveToHead(a, value, length));
+            printf("index for key %d = %d \n",value, linearSearchArray(&a, value));
+            printf("index for key %d = %d \n",value, linearSearchArrayWithTranspostion(&a, value));
+            printf("index for key %d = %d \n",value, linearSearchArrayWithMoveToHead(&a, value));
             break;
         case 6:
             printf("Enter the value you want to element \n");
             scanf("%d", &value);
-            printf("index for key %d = %d \n",value, binarySearchArray(a, value, length));
+            printf("index for key %d = %d \n",value, binarySearchArray(&a, value));
             break;
         case 7:
-            printf("Enter the index for which you want an element");
+            printf("Enter the index for which you want an element \n");
             scanf("%d", &index);
-            if(index < 0 && index > length) {
-                printf("Invalid Index");
+            if(index < 0 && index > a.length) {
+                printf("Invalid Index \n");
             } else {
-                printf("Element at index %d is %d", index, getElement(a, index));
+                printf("Element at index %d is %d \n", index, getElement(&a, index));
             }
+            break;
         case 8:
             printf("Enter the index for which you want an element");
             scanf("%d", &index);
             printf("Enter the Element value");
             scanf("%d", &value);
-            if(index < 0 && index > length) {
+            if(index < 0 && index > a.length) {
                 printf("Invalid Index");
             } else {
-                setElement(a, value, index);
+                setElement(&a, value, index);
             }
             break;
         case 9:
-            printf("Max Element of Array is %d \n", max(a, length));
+            printf("Max Element of Array is %d \n", max(&a));
             break;
         case 10:
-            printf("Min Element of Array is %d \n", min(a, length));
+            printf("Min Element of Array is %d \n", min(&a));
             break;
         case 11:
-            printf("Sum Of all Elementf of Array is %d \n", sum(a, length));
+            printf("Sum Of all Elementf of Array is %d \n", sum(&a));
             break;
         case 12:
-            printf("Avg of all Elements of Array is %lf \n", (double)(sum(a, length)/length));
+            printf("Avg of all Elements of Array is %lf \n", (double)(sum(&a)/a.length));
             break;
         case 13:
-            reverseArray(a, length);
+            reverseArray(&a);
             break;
         case 14:
             printf("Enter the Element value\n");
             scanf("%d", &value);
-            insertValueSortedArray(a, value, length);
+            insertValueSortedArray(&a, value);
             break;
         default:
             goto exit_loop;
@@ -348,10 +365,10 @@ int main(int argc, const char *argv[]) {
     
 exit_loop:
 
-    if(a != NULL) {
+    if(a.A != NULL) {
         printf("cleaning up array \n");
-        free(a);
-        a = NULL;
+        free(a.A);
+        a.A = NULL;
     }
     return 0;
 
